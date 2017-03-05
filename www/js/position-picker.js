@@ -1,7 +1,7 @@
 "use strict";
 (function($){
 
-	$.fn.s46PositionPicker = function(settings) {
+	$.fn.PositionPicker = function(settings) {
 
 		return this.each( function(){
 
@@ -12,7 +12,7 @@
 				radios,
 				labels,
 
-				// FIX FOR DOCUMENT CLICK EVENT TOGGLING DROPDOWN
+				// USED FOR FIXING DOCUMENT CLICK EVENT TOGGLING DROPDOWN
 				clicked 		= 0,
 
 				// SETTINGS
@@ -26,12 +26,12 @@
 				ipt_name		= typeof sett.name	 				!= 'undefined' ? sett.name : "position",
 				ipt_name 		= typeof self.attr("input-name") 	!= 'undefined' ? self.attr("input-name") : ipt_name,
 
-				text 			= typeof sett.text 					!= 'undefined' ? sett.text : [  "top-left", "top-center", "top-right", 
-																									"middle-left", "middle-center", "middle-right", 
+				text 			= typeof sett.text 					!= 'undefined' ? sett.text : [  "top-left", "top-center", "top-right",
+																									"middle-left", "middle-center", "middle-right",
 																									"bottom-left", "bottom-center", "bottom-right"],
 
-				value 			= typeof sett.value 				!= 'undefined' ? sett.value : [ "position-top position-left", "position-top position-center", "position-top position-right", 
-																									"position-middle position-left", "position-middle position-center", "position-middle position-right", 
+				value 			= typeof sett.value 				!= 'undefined' ? sett.value : [ "position-top position-left", "position-top position-center", "position-top position-right",
+																									"position-middle position-left", "position-middle position-center", "position-middle position-right",
 																									"position-bottom position-left", "position-bottom position-center", "position-bottom position-right"],
 
 
@@ -40,7 +40,7 @@
 					var radios_body = "";
 
 					// CREATE INPUT BODY
-					for (var i=0;i<9;i++) {
+					for ( var i = 0; i < 9; i++ ) {
 						radios_body += "<input type='radio' name='" + ipt_name + "' data-text='" + text[i] + "' value='" + value[i] + "'><label/>";
 					}
 
@@ -103,7 +103,7 @@
 		});
 
 
-	}; //-- s46PositionPicker()
+	}; //-- PositionPicker()
 
 	$.fn.getPosition = function() {
 		return $(this).find("input[type='radio']:checked").val();
@@ -127,22 +127,21 @@ var pospicker1, pospicker2, pospicker3;
 
 $(window).on("load", function() {
 
-	pospicker1 = $("#pp1").s46PositionPicker({
-		placeholder	: 'xxx: ',
+	pospicker1 = $("#pp1").PositionPicker({
+		placeholder	: 'Custom placeholder: ',
 		name		: 'position1'
 
 	});
 
-	pospicker2 = $("#pp2").s46PositionPicker({
+	pospicker2 = $("#pp2").PositionPicker({
 		name		: 'position2'
 
 	});
 
-	pospicker3 = $("#pp3").s46PositionPicker({
+	pospicker3 = $("#pp3").PositionPicker({
 		name		: 'position3'
 
 	});
 
 
 });
-

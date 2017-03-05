@@ -130,6 +130,7 @@ button {
 	border-radius: 10px;
 	border: none;
 	color: #fff;
+	cursor: pointer;
 	text-shadow: 0 0 1px rgba(0,0,0,0.3);
 	box-shadow: 0 -2px 0 rgba(0,0,0,0.2) inset;
 }
