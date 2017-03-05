@@ -1,0 +1,116 @@
+// ------------------------------------------------------------------------------- COLORS
+
+@brand-primary:					#2895f1;										// BRAND PRIMARY COLOR
+@brand-secondary:				#777777;										// BRAND SECONDARY COLOR
+@brand-success:					#0db8af;										// BRAND SUCCESS COLOR
+@brand-warning:					#e9c068;										// BRAND WARNING COLOR
+@brand-alert:					#e97868;										// BRAND ALERT COLOR
+
+@switch-label-color:			#808080;										// SWITCH LABEL COLOR
+@switch-on-bg: 					@brand-primary;									// SWITCH ON BACKGROUND COLOR
+@switch-off-bg: 				#cccccc;										// SWITCH OFF BACKGROUND COLOR
+
+// ------------------------------------------------------------------------------- VARS
+
+@lg-switch-height: 				30px;											// [LARGE] SWITCH HEIGHT
+
+@lg-label-height: 				16px;											// [LARGE] SWITCH PLACEHOLDER HEIGHT
+
+// ------------------------------------------------------------------------------- CLASSES
+
+.s46-switch {
+	position: 				relative;
+	display: 				block;
+	height: 				@lg-switch-height;
+
+	background-color: 		@brand-secondary;
+
+	input[type=checkbox] {
+		display: 				none;
+	}
+
+	label {
+		position: 				absolute;
+		display: 				block;
+		top: 					0;
+		left: 					10px;
+
+		.unselectable();
+		.transition( e("top .4s ease, left .4s ease, font-size .4s ease") );
+
+		color: 					@input-label-color;
+		font-size: 				14px;
+		font-weight: 			400;
+		line-height: 			@lg-input-height;
+	}
+
+	& > .switch {
+		position: 				absolute;
+		display: 				block;
+		width: 					@lg-switch-height;
+		height: 				@lg-switch-height;
+	}
+}
+
+
+// input[type=checkbox] {
+// 	display: 				none;
+
+// 	& + label {
+// 		position: 				relative;
+// 		display: 				inline-block;
+// 		width: 					85px;
+// 		height: 				30px;
+
+// 		cursor: 				pointer;
+
+// 		.border-radius( 15px );
+// 		.transition( background-color .4s ease );
+
+// 		background-color: 		@switch-off-bg;
+
+// 		&:before {
+// 			position: 				absolute;
+// 			display: 				block;
+// 			width: 					30px;
+// 			height: 				30px;
+// 			top: 					0;
+// 			left: 					0;
+// 			content: 				" ";
+
+// 			.border-radius( 50% );
+// 			.transition( left .4s ease );
+// 			border: 				2px solid @switch-off-bg;
+// 			background-color: 		#fff;
+// 		}
+
+// 		&:after {
+// 			position: 				absolute;
+// 			display: 				block;
+// 			width: 					100%;
+// 			height: 				30px;
+// 			padding: 				0 15px;
+// 			content: 				"NO";
+			
+// 			color: 					#fff;
+// 			text-align: 			right;
+// 			font-weight: 			400;
+// 			font-size: 				16px;
+// 			line-height: 			30px;
+// 		}
+
+// 		&:focus {
+// 			background-color: red;
+// 		}
+// 	}
+
+// 	&:checked + label {
+// 		background-color: 			@brand-primary;
+
+// 		&:before {
+// 			left: 					55px;
+// 			border-color: 			@switch-on-bg;
+// 		}
+// 		&:after { content: "YES"; text-align: left; }
+// 	}
+// }

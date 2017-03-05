@@ -1,0 +1,104 @@
+// ------------------------------------------------------------------------------- COLORS
+
+@brand-primary:					#2895f1;										// BRAND PRIMARY COLOR
+@brand-secondary:				#777777;										// BRAND SECONDARY COLOR
+@brand-success:					#0db8af;										// BRAND SUCCESS COLOR
+@brand-warning:					#e9c068;										// BRAND WARNING COLOR
+@brand-alert:					#e97868;										// BRAND ALERT COLOR
+
+@input-label-color:				#808080;										// INPUT LABEL COLOR
+@input-border-color: 			#cccccc;										// INPUT BORDER COLOR
+
+// ------------------------------------------------------------------------------- VARS
+
+@lg-input-height: 				30px;											// [LARGE] INPUT HEIGHT
+
+@lg-pholder-height: 			16px;											// [LARGE] INPUT PLACEHOLDER HEIGHT
+
+// ------------------------------------------------------------------------------- CLASSES
+
+.s46-input {
+	position: 				relative;
+	margin-top: 			@lg-pholder-height;
+
+	border-bottom: 			1px solid @input-border-color;
+	box-sizing: 			border-box;
+
+	&:before {
+		position: 				absolute;
+		display: 				block;
+		width: 					0;
+		height: 				2px;
+		top: 					100%;
+		left: 					50%;
+		content: 				" ";
+
+		.transition( width .8s ease );
+		.transform( translate(-50%, 0%) );
+		
+		background-color: 		@brand-primary;
+	}
+
+	input[type=text], input[type=password] {	
+		display: 				block;
+		width: 					100%;
+		height: 				@lg-input-height;
+		padding: 				0 15px;
+
+		border: 				none;
+		outline: 				none;
+
+		&::-ms-clear { display: none; widht: 0; height: 0; }
+		&::-ms-reveal { display: none; widht: 0; height: 0; }
+	}
+
+	label {
+		position: 				absolute;
+		display: 				block;
+		top: 					0;
+		left: 					10px;
+
+		.unselectable();
+		.transition( e("top .4s ease, left .4s ease, font-size .4s ease") );
+
+		color: 					@input-label-color;
+		font-size: 				14px;
+		font-weight: 			400;
+		line-height: 			@lg-input-height;
+	}
+
+	&.ipt-active:before { width: 100%; }
+	&.ipt-got-value, &.ipt-active {
+		label {
+			top: 					-@lg-pholder-height;
+			left: 					0;
+			font-size: 				12px;
+		}
+	}
+
+	&.ipt-mandatory {
+
+		label:before {
+			position: 				absolute;
+			display: 				block;
+			content: 				"\f069";
+			top: 					0;
+			left: 					110%;
+
+
+			color: 					@brand-primary;
+			font-family: 			FontAwesome;
+			font-size: 				8px;
+			line-height: 			24px;
+
+		}
+
+	}
+
+	&.ipt-invalid {
+
+		&:before { background-color: @brand-alert; width: 100%; }
+		label:before { color: @brand-alert; }
+	}
+
+}

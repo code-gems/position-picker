@@ -1,0 +1,108 @@
+.position-picker {
+
+	&.pp-show {
+		.pp-input {
+			border-color: 			#60b1f5;
+			border-bottom: 			transparent 1px solid;
+
+			.border-radius( 4px 4px 0 0 );
+		}
+
+		.pp-dropdown {
+			display: 				block;
+			top: 					101%;
+			
+			border-top: 			transparent 1px solid;
+			.border-radius( 0 0 4px 4px );
+
+		}
+
+		.pp-input:after { content: "\f0d8"; }
+	}
+
+	.pp-input {
+		position: 				relative;
+		display: 				inline-block;
+		min-width: 				270px;
+		padding: 				6px 30px 6px 5px;
+
+		color: 					#202020;
+		cursor: 				pointer;
+		.border-radius( 4px );
+		border: 				#c3c3c3 1px solid;
+
+		background-color: 		#ffffff;
+
+		&:after {
+			position: 				absolute;
+			display: 				block;
+			width: 					30px;
+			height: 				30px;
+			top: 0;
+			right: 0;
+			content: 				"\f0d7";
+
+			text-align: 			center;
+			line-height: 			30px;
+			font-family: 			FontAwesome;
+		}
+	}
+
+	.pp-dropdown {
+		position: 				absolute;
+		display: 				none;
+		width: 					301px;
+		margin-left: 			-1px;
+		padding: 				2px;
+		top: 					100px;
+		left: 					0;
+
+		.border-radius( 4px );
+		.transition( top .4s ease );
+
+		border: 				1px solid #60b1f5;
+		background-color: 		#ffffff;
+		z-index: 				2;
+
+		label {
+			display: 				block;
+			width: 					100px;
+			height: 				35px;
+			float: 					left;
+
+			cursor: 				pointer;
+			color: 					#ffffff;
+
+			border: 				1px dashed #f5f5f5;
+			background-color:		#dddddd;
+
+			box-sizing: 			border-box;
+
+			.transition( all .8s ease );
+
+			&:hover { background-color: #cccccc; }
+		}
+
+		input[type="radio"] {
+			display: 				none;
+
+			&:checked + label {
+				border: 				1px solid #f5f5f5;
+				.border-radius( 4px );
+				background-color: 		#60b1f5;
+
+				&:before {
+					display: 				block;
+					content: 				"\f00c";
+
+					text-align: 			center;
+					line-height: 			30px;
+					font-family: 			FontAwesome;
+				}
+			}
+		}
+	}
+
+	&:before, &:after { display: table; content: " "; }
+	&:after { clear: both; }
+}
