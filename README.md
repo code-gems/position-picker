@@ -5,9 +5,14 @@ Position picker is jQuery plugin. Can be used as a web component to improve user
 
 
 ```
-$('#position-picker').positionPicker();
+$( selector ).PositionPicker( options );
 
 ```
+
+# Options
+
+## placeholder
+Custom text that will appear as a placeholder
 
 # Dependency
 jQuery 1.3x
